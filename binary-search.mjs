@@ -1,4 +1,4 @@
-const assert = require("node:assert");
+import assert from "node:assert";
 
 function binarySearch(numbers, target) {
   let low = 0;
