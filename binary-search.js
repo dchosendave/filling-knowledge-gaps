@@ -1,3 +1,5 @@
+const assert = require("node:assert");
+
 function binarySearch(numbers, target) {
   let low = 0;
   let high = numbers.length - 1;
@@ -18,4 +20,14 @@ function binarySearch(numbers, target) {
   return "not found";
 }
 
-console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 7));
+assert.strictEqual(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 7), 6);
+assert.strictEqual(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1), 0);
+assert.strictEqual(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10), 9);
+assert.strictEqual(
+  binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 99),
+  "not found",
+);
+assert.strictEqual(binarySearch([], 5), "not found");
+assert.strictEqual(binarySearch([5], 5), 0);
+
+console.log("All tests passed!");
